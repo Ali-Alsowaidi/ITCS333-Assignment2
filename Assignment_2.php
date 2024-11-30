@@ -1,3 +1,4 @@
+
 <?php
 
     // Fetching the data from the API
@@ -8,3 +9,37 @@
     // Parse the JSON response
     $students = $result['records'];
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Statistics</title>
+    <!-- Include Pico CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+</head>
+<body>
+    <main class="container">
+        <h1>Statistics of Students by Nationality</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>College</th>
+                    <th>Program</th>
+                    <th>Nationality</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($tableData as $row): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($row['college']); ?></td>
+                        <td><?= htmlspecialchars($row['program']); ?></td>
+                        <td><?= htmlspecialchars($row['nationality']); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
