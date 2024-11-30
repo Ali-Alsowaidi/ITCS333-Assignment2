@@ -29,9 +29,11 @@ Section 8
     foreach ($students as $student){
         $fields = $student ['record'] ?? [];
         $tableData[] = [
-            'college' => $fields['colleges'] ?? '',
+            'year' => $fields['year']?? '',
+            'semester' => $fields['semester']?? '',
             'program' => $fields['the_programs'] ?? '',
             'nationality' => $fields['student_nationalities'] ?? '',
+            'college' => $fields['colleges'] ?? '',
         ];
     }
 ?>
@@ -46,7 +48,7 @@ Section 8
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Student Statistics</title>
-    
+
     <!-- Pico CSS styling -->
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
 </head>
@@ -55,21 +57,27 @@ Section 8
     <main class="container">
         <h1>Statistics of Students by Nationality</h1>
 
-        <!-- Table -->
+        <!-- Table-->
         <table>
             <thead>
                 <tr>
-                    <th>College</th>
+                    <th>Year</th>
+                    <th>Semester</th>
                     <th>Program</th>
                     <th>Nationality</th>
+                    <th>College</th>
+                    <th>Number of Students</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($tableData as $row): ?>
                     <tr>
-                        <td><?= htmlspecialchars($row['college']); ?></td>
+                        <td><?= htmlspecialchars($row['year']); ?></td>
+                        <td><?= htmlspecialchars($row['semester']); ?></td>
                         <td><?= htmlspecialchars($row['program']); ?></td>
                         <td><?= htmlspecialchars($row['nationality']); ?></td>
+                        <td><?= htmlspecialchars($row['college']); ?></td>
+                        <td><?= htmlspecialchars($row['students_count']); ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
