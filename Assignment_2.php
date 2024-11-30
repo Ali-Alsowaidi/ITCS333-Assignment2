@@ -1,4 +1,8 @@
 
+
+
+<!-- Task 1 -->
+
 <?php
 
     // Fetching the data from the API
@@ -9,6 +13,9 @@
     // Parse the JSON response
     $students = $result['records'];
 ?>
+
+
+<!-- Task 2 -->
 
 <!DOCTYPE html>
 <html lang="en">
