@@ -44,13 +44,18 @@ Section 8
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Student Statistics</title>
-    <!-- Include Pico CSS -->
+    
+    <!-- Pico CSS styling -->
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
 </head>
+
 <body>
     <main class="container">
         <h1>Statistics of Students by Nationality</h1>
+
+        <!-- Table -->
         <table>
             <thead>
                 <tr>
