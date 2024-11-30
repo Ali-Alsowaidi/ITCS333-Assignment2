@@ -15,8 +15,25 @@ Section 8
     $response = file_get_contents($url);
     $result = json_decode($response,true);
 
-    // Parse the JSON response
-    $students = $result['records'];
+    //Check if the data retrieved successsfully
+    if (!$result){
+        echo "Failed to fetch the data";
+        exit();
+    }
+
+    // Extract the records
+    $students = $result['records'] ?? [];
+
+    //Parse the JSON response
+    $tableData = [];
+    foreach ($students as $student){
+        $fields = $student ['record'] ?? [];
+        $tableData[] = [
+            'college' => $fields['colleges'] ?? '',
+            'program' => $fields['the_programs'] ?? '',
+            'nationality' => $fields['student_nationalities'] ?? '',
+        ];
+    }
 ?>
 
 
